@@ -64,4 +64,3 @@ class Vote < ActiveRecord::Base
   end
   
 end
-
