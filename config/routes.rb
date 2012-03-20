@@ -4,12 +4,25 @@ Voteapp::Application.routes.draw do
     collection do
       get :byme
       get :has_voted
+      
     end
     
 		member do
 		  get :voted_users
 		  get :result
 		end
+		
+		resources :comments
+  end
+  
+  get 'votes/new/:type' => 'votes#new'
+  
+
+  resources :comments do
+    member do
+      get :reply
+      post :do_reply
+    end
   end
 
   resources :vote_results

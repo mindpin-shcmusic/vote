@@ -14,6 +14,9 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
+    if params[:type] == 'IMAGE'
+      render :action => 'new_image'
+    end
   end
   
   # 创建投票
@@ -39,6 +42,7 @@ class VotesController < ApplicationController
   
   # 显示投票结果
   def result
+    @comments = @vote.comments
   end
   
   
